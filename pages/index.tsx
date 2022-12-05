@@ -4,14 +4,14 @@ export default function Home() {
     return (
         <div className="h-screen">
             <Head>
-                <title>Kyrill.us</title>
+                <title>kyrill.us</title>
                 <meta name="description" content="Personal Porfolio Page"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
 
             <main className="flex flex-col select-none h-full space-y-5 md:space-y-10 justify-center items-center">
                 <h1 style={{textShadow: "10px 20px #808080"}}
-                    className="text-6xl md:text-[7vw] font-bold">Kyrill.us</h1>
+                    className="text-6xl md:text-[7vw] font-bold">kyrill.us</h1>
                 <h1 className="text-md md:text-[2vw] font-regular ">Full-Stack Developer & Creative UX/UI Designer</h1>
                 <div className="flex gap-5 justify-center items-center w-full">
                     <h1 className="text-base md:text-[1.5vw] font-light ">let's collaborate!</h1>
