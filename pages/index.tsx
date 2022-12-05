@@ -12,9 +12,9 @@ export default function Home() {
             <main className="flex flex-col select-none h-full space-y-5 md:space-y-10 justify-center items-center">
                 <h1 style={{textShadow: "10px 20px #808080"}}
                     className="text-6xl md:text-[7vw] font-bold">kyrill.us</h1>
-                <h1 className="text-md md:text-[2vw] font-regular ">Full-Stack Developer & Creative UX/UI Designer</h1>
+                <h1 className="text-md md:text-[2vw] font-regular italic">Full-Stack Developer & Creative UX/UI Designer</h1>
                 <div className="flex gap-5 justify-center items-center w-full">
-                    <h1 className="text-base md:text-[1.5vw] font-light ">let's collaborate!</h1>
+                    <h1 className="text-base md:text-[1.5vw] font-light italic">let's collaborate!</h1>
                 </div>
                 <div className="flex gap-[2.5vw] pt-10">
                     {/* Github */}
