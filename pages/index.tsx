@@ -14,7 +14,7 @@ export default function Home() {
                     className="text-6xl md:text-[7vw] font-bold">kyrill.us</h1>
                 <h1 className="text-md md:text-[2vw] font-regular italic">Full-Stack Developer & Creative UX/UI Designer</h1>
                 <div className="flex gap-5 justify-center items-center w-full">
-                    <h1 className="text-base md:text-[1.5vw] font-light italic">let's collaborate!</h1>
+                    <h1 className="text-base md:text-[1.5vw] font-light italic">let&apos;s collaborate!</h1>
                 </div>
                 <div className="flex gap-[2.5vw] pt-10">
                     {/* Github */}
