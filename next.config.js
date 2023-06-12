@@ -4,7 +4,12 @@ const nextConfig = {
     return [
       {
         source: '/cv',
-        destination: '/cv.pdf',
+        destination: '/cv_en.pdf',
+        permanent: true,
+      },
+      {
+        source: '/cv-de',
+        destination: '/cv_de.pdf',
         permanent: true,
       },
     ]
