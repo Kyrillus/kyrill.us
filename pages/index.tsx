@@ -210,14 +210,26 @@ export default function Home() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xs uppercase tracking-wider text-[#888888] mb-4 font-medium">
-                articles
-              </h2>
+              <div className="flex items-center gap-3 mb-4">
+                <h2 className="text-xs uppercase tracking-wider text-[#888888] font-medium">
+                  articles
+                </h2>
+                {!loading && rssItems.length > 0 && (
+                  <a
+                    href="https://blog.kyrill.us"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs text-[#666666] hover:text-[#999999] transition-all duration-200 underline decoration-[#666666] hover:decoration-[#999999]"
+                  >
+                    [view all]
+                  </a>
+                )}
+              </div>
               {loading ? (
                 <p className="text-sm text-[#888888]">Loading...</p>
               ) : rssItems.length > 0 ? (
                 <ul className="space-y-3">
-                  {rssItems.map((item, index) => (
+                  {rssItems.slice(0, 5).map((item, index) => (
                     <li key={index} className="text-sm md:text-base group">
                       <a
                         href={item.link}
