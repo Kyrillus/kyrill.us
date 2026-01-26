@@ -260,6 +260,14 @@ export default function Home() {
                   X
                 </a>
                 <a 
+                  href="https://github.com/kyrillus"
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="hover:text-[#e8e8e8] transition-all duration-200 underline decoration-[#666666] hover:decoration-[#999999] hover:decoration-2"
+                >
+                  GitHub
+                </a>
+                <a 
                   href="https://www.instagram.com/kyrill.us/"
                   target="_blank" 
                   rel="noreferrer"
