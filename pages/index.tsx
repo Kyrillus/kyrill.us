@@ -156,7 +156,7 @@ export default function Home() {
     <>
       <Head>
         <title>Kyrillus</title>
-        <meta name="description" content="Computer Science (Theory) @ TU Wien" />
+        <meta name="description" content="Computer Science @ TU Wien" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -186,7 +186,7 @@ export default function Home() {
             
             <header className="mb-8">
               <p className="text-sm md:text-base text-[#b4b4b4] leading-relaxed mb-2">
-                Computer Science (Theory) @ TU Wien. Interested in HPC, ML, and Optimization.
+                Computer Science (Theory) @ TU Wien. Interested in Software, ML, and Physical AI.
               </p>
             </header>
 
@@ -195,18 +195,6 @@ export default function Home() {
                 Self-employed software engineer. I want to solve hard problems that create meaningful impact.
               </p>
 
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-xs uppercase tracking-wider text-[#888888] mb-4 font-medium">
-                Previously
-              </h2>
-              <p className="text-sm md:text-base text-[#c8c8c8] leading-relaxed">
-                co-founded venture builder @ base3.at
-              </p>
-              <p className="text-sm md:text-base text-[#c8c8c8] leading-relaxed">
-                built AI agents, recommendation systems and web scraper @ grizzly.jobs
-              </p>
             </section>
 
             <section className="mb-8">
