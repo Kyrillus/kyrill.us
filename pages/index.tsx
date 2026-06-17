@@ -40,9 +40,9 @@ export default function Home() {
           const rect = terminalRef.current.getBoundingClientRect()
           const centerX = (window.innerWidth - rect.width) / 2
           const centerY = (window.innerHeight - rect.height) / 2
-          setPosition({ 
-            x: Math.max(20, centerX), 
-            y: Math.max(20, centerY) 
+          setPosition({
+            x: Math.max(20, centerX),
+            y: Math.max(20, centerY)
           })
           // Show terminal after positioning is set
           setTimeout(() => {
@@ -57,7 +57,7 @@ export default function Home() {
     // Keep terminal within bounds on window resize
     const handleResize = () => {
       if (!terminalRef.current) return
-      
+
       const rect = terminalRef.current.getBoundingClientRect()
       const terminalWidth = rect.width
       const terminalHeight = rect.height
@@ -79,7 +79,7 @@ export default function Home() {
   const handleMouseDown = (e: React.MouseEvent) => {
     // Disable dragging on mobile
     if (window.innerWidth <= 768) return
-    
+
     setIsDragging(true)
     setDragStart({
       x: e.clientX - position.x,
@@ -94,7 +94,7 @@ export default function Home() {
         setIsDragging(false)
         return
       }
-      
+
       if (!isDragging || !terminalRef.current) return
 
       const newX = e.clientX - dragStart.x
@@ -133,10 +133,10 @@ export default function Home() {
   const formatDate = (dateString: string) => {
     try {
       const date = new Date(dateString)
-      return date.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'short', 
-        day: 'numeric' 
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
       })
     } catch {
       return dateString
@@ -161,7 +161,7 @@ export default function Home() {
       </Head>
 
       <main style={{ position: 'relative', width: '100vw', minHeight: '100vh', overflow: 'hidden', paddingBottom: '20px' }}>
-        <div 
+        <div
           ref={terminalRef}
           className={`terminal-window ${isVisible ? 'terminal-visible' : 'terminal-hidden'}`}
           style={{
@@ -172,7 +172,7 @@ export default function Home() {
             cursor: isDragging ? 'grabbing' : 'default'
           }}
         >
-          <div 
+          <div
             className="terminal-titlebar"
             onMouseDown={handleMouseDown}
             style={{ cursor: isMounted && typeof window !== 'undefined' && window.innerWidth > 768 ? 'grab' : 'default' }}
@@ -183,7 +183,7 @@ export default function Home() {
           </div>
           <div className="terminal-content">
             <div className="ascii-art">{asciiArt}</div>
-            
+
             <header className="mb-8">
               <p className="text-sm md:text-base text-[#b4b4b4] leading-relaxed mb-2">
                 Computer Science (Theory) @ TU Wien. Interested in Software, ML, and Physical AI.
@@ -197,7 +197,7 @@ export default function Home() {
 
             </section>
 
-            <section className="mb-8">
+            {/*<section className="mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <h2 className="text-xs uppercase tracking-wider text-[#888888] font-medium">
                   articles
@@ -221,7 +221,7 @@ export default function Home() {
                     <li key={index} className="text-sm md:text-base group">
                       <a
                         href={item.link}
-                        target="_blank" 
+                        target="_blank"
                         rel="noreferrer"
                         className="text-[#c8c8c8] hover:text-[#e8e8e8] transition-all duration-200 underline decoration-[#666666] hover:decoration-[#999999] hover:decoration-2"
                       >
@@ -236,7 +236,7 @@ export default function Home() {
               ) : (
                 <p className="text-sm text-[#888888]">No articles yet.</p>
               )}
-            </section>
+            </section>*/}
 
             <section className="mt-8 pt-6 border-t border-[#2d2f37]">
               <h2 className="text-xs uppercase tracking-wider text-[#888888] mb-4 font-medium">
@@ -245,37 +245,37 @@ export default function Home() {
               <nav className="flex flex-wrap gap-6 text-sm text-[#c8c8c8]">
                 <a
                   href="https://linkedin.com/in/kyrillus"
-                  target="_blank" 
+                  target="_blank"
                   rel="noreferrer"
                   className="hover:text-[#e8e8e8] transition-all duration-200 underline decoration-[#666666] hover:decoration-[#999999] hover:decoration-2"
                 >
                   LinkedIn
                 </a>
-                <a 
+                <a
                   href="https://x.com/kyrill_us"
-                  target="_blank" 
+                  target="_blank"
                   rel="noreferrer"
                   className="hover:text-[#e8e8e8] transition-all duration-200 underline decoration-[#666666] hover:decoration-[#999999] hover:decoration-2"
                 >
                   X
                 </a>
-                <a 
+                <a
                   href="https://github.com/kyrillus"
-                  target="_blank" 
+                  target="_blank"
                   rel="noreferrer"
                   className="hover:text-[#e8e8e8] transition-all duration-200 underline decoration-[#666666] hover:decoration-[#999999] hover:decoration-2"
                 >
                   GitHub
                 </a>
-                <a 
+                <a
                   href="https://www.instagram.com/kyrill.us/"
-                  target="_blank" 
+                  target="_blank"
                   rel="noreferrer"
                   className="hover:text-[#e8e8e8] transition-all duration-200 underline decoration-[#666666] hover:decoration-[#999999] hover:decoration-2"
                 >
                   Instagram
                 </a>
-                <a 
+                <a
                   href="mailto:contact@kyrill.us"
                   className="hover:text-[#e8e8e8] transition-all duration-200 underline decoration-[#666666] hover:decoration-[#999999] hover:decoration-2"
                 >
