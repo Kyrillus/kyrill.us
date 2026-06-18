@@ -186,7 +186,7 @@ export default function Home() {
 
             <header className="mb-8">
               <p className="text-sm md:text-base text-[#b4b4b4] leading-relaxed mb-2">
-                Computer Science (Theory) @ TU Wien. Interested in Software, ML, and Physical AI.
+                Computer Science @ TU Wien. Interested in Software, ML, and Physical AI.
               </p>
             </header>
 
