@@ -192,7 +192,7 @@ export default function Home() {
 
             <section className="mb-8">
               <p className="text-sm md:text-base text-[#c8c8c8] leading-relaxed">
-                Self-employed software engineer. I want to solve hard problems that create meaningful impact.
+                I want to solve hard problems that create meaningful impact.
               </p>
 
             </section>
