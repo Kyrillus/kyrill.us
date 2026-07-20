@@ -192,7 +192,7 @@ export default function Home() {
 
             <section className="mb-8">
               <p className="text-sm md:text-base text-[#b4b4b4] leading-relaxed">
-                Currently: VLA models for contact-rich manipulation at the AI Lab, TU Wien Robotics Club.
+                Currently: Researching VLA models for contact-rich manipulation.
               </p>
 
             </section>
