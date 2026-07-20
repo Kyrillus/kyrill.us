@@ -186,13 +186,13 @@ export default function Home() {
 
             <header className="mb-8">
               <p className="text-sm md:text-base text-[#b4b4b4] leading-relaxed mb-2">
-                Computer Science @ TU Wien. Interested in Software, ML, and Physical AI.
+                Computer Science @ TU Wien. Building in physical AI.
               </p>
             </header>
 
             <section className="mb-8">
-              <p className="text-sm md:text-base text-[#c8c8c8] leading-relaxed">
-                I want to solve hard problems that create meaningful impact.
+              <p className="text-sm md:text-base text-[#b4b4b4] leading-relaxed">
+                Currently: VLA models for contact-rich manipulation at the AI Lab, TU Wien Robotics Club.
               </p>
 
             </section>
