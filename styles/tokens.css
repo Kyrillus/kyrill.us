@@ -1,0 +1,38 @@
+/* ── palette: "the machine shop at night" ─────────────────────────── */
+:root {
+  --bg: #0b0d11;
+  --bg-raise: #12151b;
+  --fg: #c9cdd3;
+  --fg-dim: #7c8594; /* one step brighter than spec'd #6b7280 — WCAG 4.5:1 floor */
+  --line: #1e232b;
+  --accent: #f25c05;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --font-display: 'Departure Mono', 'JetBrains Mono', ui-monospace, monospace;
+  --font-body: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+@font-face {
+  font-family: 'Departure Mono';
+  src: url('/fonts/DepartureMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
