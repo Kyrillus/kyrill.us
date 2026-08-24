@@ -119,10 +119,12 @@ canvas.field {
   row-gap: 8px;
 }
 
-/* 44px minimum hit area lives on the anchor itself (thumb targets) */
+/* 44px minimum hit area lives on the anchor itself (thumb targets);
+   centered so short labels like "X" don't dump slack on one side */
 .links a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-height: 44px;
   min-width: 44px;
   overflow-wrap: anywhere;
