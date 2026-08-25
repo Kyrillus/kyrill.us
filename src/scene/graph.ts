@@ -204,6 +204,14 @@ export function createGraph(opts: GraphOpts): void {
     return;
   }
 
+  // the affordance only exists where the interaction does
+  const hint = document.createElement('div');
+  hint.className = 'hold-hint';
+  hint.textContent = '[ hold ]';
+  hint.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(hint);
+  let hintDone = false;
+
   let visible = !document.hidden;
   let last = performance.now();
   document.addEventListener('visibilitychange', () => {
@@ -266,6 +274,12 @@ export function createGraph(opts: GraphOpts): void {
       sampleAccum = 0;
       samples.push({ t: now, logV });
       while (samples.length > 2 && samples[0].t < now - WINDOW_S) samples.shift();
+    }
+
+    // once the hold is discovered, the hint retires for good
+    if (!hintDone && holding && holdTime > 0.8) {
+      hintDone = true;
+      hint.classList.add('is-done');
     }
 
     // linear in the accumulated rate — the climb is earned, not given

@@ -23,11 +23,12 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
-}
-
-::selection {
-  background: var(--accent);
-  color: var(--bg);
+  /* the page is an instrument, not a document — and a long-press is
+     an action here, so nothing should select or pop a callout */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -101,6 +102,41 @@ a {
 /* lock-on: brackets go accent */
 .cur-ret.is-locked span {
   border-color: var(--accent);
+}
+
+/* whispered affordance for the curve — fades for good once used */
+.hold-hint {
+  position: fixed;
+  right: clamp(24px, 9vw, 130px);
+  bottom: 9vh;
+  z-index: 1;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: #414957;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hold-hint {
+    animation: hint-breathe 5s ease-in-out infinite;
+  }
+}
+
+@keyframes hint-breathe {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.75;
+  }
+}
+
+.hold-hint.is-done {
+  animation: none;
+  opacity: 0;
+  transition: opacity 900ms var(--ease-out);
 }
 
 /* terminal-cursor heritage: the last character on the page blinks */
