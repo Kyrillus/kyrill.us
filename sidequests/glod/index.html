@@ -27,7 +27,7 @@
     <div class="text">
       <p class="lede">In the summer of 2026 the artist <a href="https://www.glod.art/" rel="noreferrer">Marcin Glod</a> approached <a href="https://www.linkedin.com/in/alexander-sanchez-dlc/" rel="noreferrer">Alex</a>, who runs HOIV (Home of Innovation). Glod had a showroom for two months for his new collection, a glass case in the passage of the U1 station at Karlsplatz in Vienna. He wanted something in it that mixed art with tech. That's how my friend <a href="https://www.linkedin.com/in/josef-nasim-22a8a91b4/" rel="noreferrer">Josef Nasim</a> and I ended up building this.</p>
       <p>We eventually decided to build a robot arm that holds a sign and shows it to you when you smile.</p>
-      <p>There's a screen in the middle of the case with a webcam on it. When nobody is around it says “Come closer!” When it sees a face it says “Smile more!” and draws a pink ring that fills up as you smile. If you smile enough, the screen says “I love your smile!”, a small robot arm on a column next to it turns its sign around so you can read “I like your smile!”, the big pinwheel turns and the clouds overhead start to move. (The screen says love and the sign says like. We left it that way.)</p>
+      <p>There's a screen in the middle of the case with a webcam on it. When nobody is around it says “Come closer!” When it sees a face it says “Smile more!” and draws a pink ring that fills up as you smile. If you smile enough, the screen says “I love your smile!”, a small robot arm on a column next to it turns its sign around so you can read “I like your smile!”, the big pinwheel turns and the clouds overhead start to move.</p>
     </div>
 
     <figure class="lead">
@@ -42,9 +42,7 @@
     <section class="part">
       <h2>Building it</h2>
       <div class="text">
-        <p>The smile detector and the robot arm started out as two separate experiments. We only connected them the night we set it up. The commit that joins them is from 6:28 pm on Sunday, June 7. By half past four in the morning we were inside the case, sitting on the artificial grass with a laptop while Glod rolled in the screen and put up the pinwheel. The photo above, in front of the finished case, was taken at 9:48.</p>
-        <p>The commit messages from that night aren't much use as documentation. Twenty in a row say “cool”.</p>
-        <p>The clouds didn't move yet. They got their motor a week later.</p>
+        <p>The smile detector and the robot arm started out as two separate experiments. We only connected them on Sunday evening, June 7, the night we set it up. By half past four in the morning we were inside the case, sitting on the artificial grass with a laptop while Glod rolled in the screen and put up the pinwheel. By a quarter to ten it was running.</p>
       </div>
       <figure class="grid">
         <div class="tiles">
@@ -62,8 +60,8 @@
     <section class="part">
       <h2>How it works</h2>
       <div class="text">
-        <p>There's nothing sophisticated inside. A Raspberry Pi looks at the webcam picture, finds the faces in it and asks an off-the-shelf model how happy each one looks. We treat that number as the smile. If several people are standing there, the biggest smile counts. Nobody ever sees the camera picture; the screen only shows the circle.</p>
-        <p>The arm is an SO-101, an open-source design you can print yourself. It starts to rise as soon as you start smiling but it takes its time and stops a few times on the way up. We did that on purpose, so it looks like it's making up its mind. At 90 percent it goes all the way, turns the sign, holds it up for five seconds and sinks back down.</p>
+        <p>A Raspberry Pi looks at the webcam picture, finds the faces in it and asks an off-the-shelf model how much each one is smiling. If several people are standing there, the biggest smile counts. The camera picture never appears on the screen.</p>
+        <p>The arm is an SO-101, an open-source design you can print yourself. It starts to rise as soon as you start smiling and stops a few times on the way up. At 90 percent it goes all the way, turns the sign, holds it up for five seconds and sinks back down.</p>
       </div>
 
       <figure class="diagram">
@@ -137,10 +135,10 @@
     <section class="part">
       <h2>What broke</h2>
       <div class="text">
-        <p>A demo only has to work while you're standing next to it. This had to keep working for two months in a subway station with none of us there. It mostly did.</p>
+        <p>It had to run for two months in a subway station with neither of us there. Mostly it did.</p>
         <p>The Raspberry Pi wasn't getting quite enough power. Every so often the voltage dipped, the USB ports reset and whatever was plugged into them vanished for a moment. The first time, in the first week, the part of the program that moves the arm died while the rest kept running. The screen got stuck on “I love your smile!” and said that to everyone who walked past, smiling or not, until we noticed.</p>
-        <p>So we wrote a watchdog, a second small program whose only job is to check on the first one and restart it when it stops answering.</p>
-        <p>Then, on a Thursday afternoon in late June, the camera dropped out and didn't come back. Restarting a program doesn't help when it has no camera. Nobody could set it off for almost four days, until we logged in on Monday morning and reset the USB ports by hand. We taught the watchdog to do that too. The next time the camera vanished, on July 4, it was back in three seconds.</p>
+        <p>So we wrote a watchdog, a second small program that restarts the first one when it stops answering.</p>
+        <p>Then, on a Thursday afternoon in late June, the camera dropped out and a restart couldn't bring it back. Nobody could set it off for almost four days, until we logged in on Monday morning and reset the USB ports by hand. We taught the watchdog to do that too. The next time the camera vanished, on July 4, it was back in three seconds.</p>
         <p>At about the same moment, though, five of the arm's six motors stopped answering and the program won't start without the arm. The watchdog restarted it every two and a half minutes for the next 57 hours, 1,365 times in all. It crashed every time. On Monday evening one of us went to the station and pushed the cables back in.</p>
         <p>After that it ran every day for more than three weeks. The last smile in the log is from 3:49 in the afternoon on July 29. A few minutes later the camera disappeared again and this time resetting the ports didn't bring it back. It was still down when we collected the logs a week later.</p>
       </div>
@@ -149,7 +147,7 @@
     <section class="part">
       <h2>Numbers</h2>
       <div class="text">
-        <p>We only started counting on June 19, eleven days in, when we added a small admin page to the Pi that we could check from home. The count stops with the camera on July 29. In between, people set it off 4,873 times. (The <a href="/sidequests/glod/smile-report.pdf">full report</a> has the charts.)</p>
+        <p>We only started counting on June 19, eleven days in, when we added a small admin page to the Pi that we could check from home. The count stops with the camera on July 29. The <a href="/sidequests/glod/smile-report.pdf">full report</a> has the charts.</p>
       </div>
       <table class="run">
         <tbody>
@@ -163,7 +161,7 @@
         </tbody>
       </table>
       <div class="text after-table">
-        <p>About half of those came within thirty seconds of the one before, so people were either doing it again or taking turns. The record is 22 in eight minutes, at lunchtime on a Tuesday.</p>
+        <p>About half of the triggers came within thirty seconds of the one before, so people were either doing it again or taking turns. The record is 22 in eight minutes, at lunchtime on a Tuesday.</p>
       </div>
     </section>
 
