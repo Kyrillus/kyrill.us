@@ -42,7 +42,7 @@
     <section class="part">
       <h2>Building it</h2>
       <div class="text">
-        <p>The smile detector and the robot arm started out as two separate experiments. We only connected them on Sunday evening, June 7, the night we set it up. By half past four in the morning we were inside the case, sitting on the artificial grass with a laptop while Glod rolled in the screen and put up the pinwheel. By a quarter to ten it was running.</p>
+        <p>The smile detector and the robot arm started out as two separate experiments. We only connected them the night we set it up. By half past four in the morning we were inside the case, sitting on the artificial grass with a laptop while Glod rolled in the screen and put up the pinwheel. By a quarter to ten it was running.</p>
       </div>
       <figure class="grid">
         <div class="tiles">
@@ -119,30 +119,27 @@
         <p>It had to run for two months in a subway station with neither of us there. Mostly it did.</p>
         <p>The Raspberry Pi wasn't getting quite enough power. Every so often the voltage dipped, the USB ports reset and whatever was plugged into them vanished for a moment. The first time, in the first week, the part of the program that moves the arm died while the rest kept running. The screen got stuck on “I love your smile!” and said that to everyone who walked past, smiling or not, until we noticed.</p>
         <p>So we wrote a watchdog, a second small program that restarts the first one when it stops answering.</p>
-        <p>Then, on a Thursday afternoon in late June, the camera dropped out and a restart couldn't bring it back. Nobody could set it off for almost four days, until we logged in on Monday morning and reset the USB ports by hand. We taught the watchdog to do that too. The next time the camera vanished, on July 4, it was back in three seconds.</p>
-        <p>At about the same moment, though, five of the arm's six motors stopped answering and the program won't start without the arm. The watchdog restarted it every two and a half minutes for the next 57 hours, 1,365 times in all. It crashed every time. On Monday evening one of us went to the station and pushed the cables back in.</p>
-        <p>After that it ran every day for more than three weeks. The last smile in the log is from 3:49 in the afternoon on July 29. A few minutes later the camera disappeared again and this time resetting the ports didn't bring it back. It was still down when we collected the logs a week later.</p>
+        <p>Then, on a Thursday afternoon in late June, the camera dropped out and a restart couldn't bring it back. Nobody could set it off for almost four days, until we logged in on Monday morning and reset the USB ports by hand. We taught the watchdog to do that too. The next time the camera vanished it was back in three seconds.</p>
+        <p>At about the same moment, though, five of the arm's six motors stopped answering and the program won't start without the arm. The watchdog restarted it every two and a half minutes for the next 57 hours, 1,365 times in all. It crashed every time. In the end one of us went to the station and pushed the cables back in.</p>
+        <p>After that it ran every day for more than three weeks. Then the camera disappeared again and this time resetting the ports didn't bring it back. It was still down when we collected the logs a week later.</p>
       </div>
     </section>
 
     <section class="part">
       <h2>Numbers</h2>
-      <div class="text">
-        <p>We only started counting on June 19, eleven days in, when we added a small admin page to the Pi that we could check from home. The count stops with the camera on July 29. The <a href="/sidequests/glod/smile-report.pdf">full report</a> has the charts.</p>
-      </div>
       <table class="run">
         <tbody>
           <tr><th scope="row">Times triggered</th><td>4,873</td></tr>
           <tr><th scope="row">Days counted</th><td>41</td></tr>
           <tr><th scope="row">Days it was down</th><td>4</td></tr>
           <tr><th scope="row">Average on a working day</th><td>132</td></tr>
-          <tr><th scope="row">Busiest day</th><td>256, Saturday June 20</td></tr>
+          <tr><th scope="row">Busiest day</th><td>256, on a Saturday</td></tr>
           <tr><th scope="row">Busiest hour</th><td>1 to 2 pm</td></tr>
           <tr><th scope="row">Between 1 and 5 am</th><td>67</td></tr>
         </tbody>
       </table>
       <div class="text after-table">
-        <p>About half of the triggers came within thirty seconds of the one before, so people were either doing it again or taking turns. The record is 22 in eight minutes, at lunchtime on a Tuesday.</p>
+        <p>About half of the triggers came within thirty seconds of the one before, so people were either doing it again or taking turns. The record is 22 in eight minutes, at lunchtime on a Tuesday. The <a href="/sidequests/glod/smile-report.pdf">full report</a> has the charts.</p>
       </div>
     </section>
 
