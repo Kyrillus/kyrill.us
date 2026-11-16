@@ -1,0 +1,304 @@
+/* Sidequest: Glod at Karlsplatz.
+   White page, one pink (#ff4da6, the installation's own) for links. */
+
+@font-face {
+  font-family: 'Brygada 1918';
+  src: url('/fonts/Brygada1918-Variable.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Departure Mono';
+  src: url('/fonts/DepartureMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --paper: #ffffff;
+  --ink: #000000;
+  --ink-soft: #5a5a5a;
+  --grey: #969696;
+  --pink: #ff4da6;
+  --rule: #dcdcdc;
+
+  --serif: 'Brygada 1918', 'Iowan Old Style', Georgia, serif;
+  --mono: 'Departure Mono', ui-monospace, Menlo, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: var(--paper);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.1875rem;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--pink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background: var(--pink);
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+.sheet {
+  max-width: 780px;
+  margin-inline: auto;
+  padding: 28px clamp(20px, 6vw, 72px) 96px;
+}
+
+/* ── way back ─────────────────────────────────────────────────────── */
+.back {
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1;
+}
+
+.back a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  max-width: 22ch;
+  margin-block: clamp(28px, 5vw, 56px) clamp(24px, 3vw, 36px);
+}
+
+/* ── running text ─────────────────────────────────────────────────── */
+.text {
+  max-width: 62ch;
+}
+
+.text p + p {
+  margin-top: 1em;
+}
+
+.lede {
+  font-size: 1.3125rem;
+  line-height: 1.5;
+}
+
+.part {
+  margin-top: clamp(56px, 8vw, 96px);
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 1.375rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.7em;
+}
+
+/* ── figures ──────────────────────────────────────────────────────── */
+figure {
+  margin-top: clamp(40px, 6vw, 72px);
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+figcaption {
+  margin-top: 12px;
+  max-width: 62ch;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+figure video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* the trigger clip leads; two photos stack beside it at the same height */
+.lead .tiles {
+  display: grid;
+  grid-template-columns: 5fr 4fr;
+  grid-template-rows: auto 1fr;
+  gap: clamp(6px, 1vw, 12px);
+}
+
+.lead video {
+  grid-row: 1 / span 2;
+}
+
+/* takes whatever height the clip leaves over, without stretching the row */
+.lead .fill {
+  height: 0;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+/* setup grid: every tile cropped to the photos' 3:4 */
+.grid .tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(6px, 1vw, 12px);
+}
+
+.grid .tiles > * {
+  aspect-ratio: 3 / 4;
+  height: auto;
+  object-fit: cover;
+}
+
+.part > figure.grid {
+  margin-top: 36px;
+}
+
+.run {
+  margin-top: 1.2em;
+}
+
+.diagram {
+  max-width: 660px;
+  margin-top: 36px;
+}
+
+.diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.diagram .box {
+  fill: var(--paper);
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.diagram .pi {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+/* same as .box; kept separate so the state machine can be singled out */
+.diagram .trigger {
+  fill: var(--paper);
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.diagram .wire {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.diagram .head {
+  fill: var(--ink);
+}
+
+.diagram .t {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 16px;
+  fill: var(--ink);
+}
+
+.diagram .s {
+  font-family: var(--mono);
+  font-size: 11px;
+  fill: var(--ink);
+}
+
+/* ── the run in numbers ───────────────────────────────────────────── */
+.run {
+  width: 100%;
+  max-width: 62ch;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.run th,
+.run td {
+  padding: 10px 0;
+  border-top: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: baseline;
+  font-weight: 400;
+}
+
+.run tr:last-child th,
+.run tr:last-child td {
+  border-bottom: 1px solid var(--rule);
+}
+
+.run th {
+  color: var(--ink-soft);
+  padding-right: 24px;
+}
+
+.run td {
+  font-weight: 600;
+}
+
+.after-table {
+  margin-top: 1em;
+}
+
+/* ── links ────────────────────────────────────────────────────────── */
+.elsewhere {
+  list-style: none;
+  max-width: 62ch;
+}
+
+.elsewhere li {
+  padding-block: 6px;
+}
+
+.elsewhere span {
+  color: var(--ink-soft);
+}
+
+@media (max-width: 720px) {
+  body {
+    font-size: 1.0625rem;
+  }
+
+  .lede {
+    font-size: 1.1875rem;
+  }
+
+}

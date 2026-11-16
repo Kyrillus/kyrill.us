@@ -31,4 +31,13 @@ function inlineCss(): Plugin {
 
 export default defineConfig({
   plugins: [inlineCss()],
+  build: {
+    rollupOptions: {
+      // one entry per page; paths resolve against the project root
+      input: {
+        main: 'index.html',
+        glod: 'sidequests/glod/index.html',
+      },
+    },
+  },
 });
