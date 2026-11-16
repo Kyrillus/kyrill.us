@@ -65,68 +65,49 @@
       </div>
 
       <figure class="diagram">
-        <svg viewBox="0 0 600 418" role="img" aria-labelledby="dg-title dg-desc">
-          <title id="dg-title">Architecture of the installation</title>
-          <desc id="dg-desc">A USB camera feeds a Raspberry Pi 5. On the Pi, a Haar cascade finds faces, the FER+ model reads the smile and the result is smoothed to a smile percentage. A state machine triggers at 90 percent and drives four outputs: the screen, the SO-101 arm, the pinwheel and the clouds.</desc>
+        <svg viewBox="0 0 600 260" role="img" aria-labelledby="dg-title dg-desc">
+          <title id="dg-title">How the installation works</title>
+          <desc id="dg-desc">A webcam feeds a Raspberry Pi. The Pi finds faces, measures the smile and triggers at 90 percent. It drives the screen, the robot arm, the pinwheel and the clouds.</desc>
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
               <path class="head" d="M0 0 10 5 0 10z" />
             </marker>
           </defs>
 
-          <rect class="box" x="220" y="2" width="160" height="50" />
-          <text class="t" x="300" y="24" text-anchor="middle">USB camera</text>
-          <text class="s" x="300" y="42" text-anchor="middle">on the screen</text>
-          <path class="wire" d="M300 52V82" marker-end="url(#arrow)" />
+          <rect class="box" x="220" y="2" width="160" height="40" />
+          <text class="t" x="300" y="27" text-anchor="middle">Webcam</text>
+          <path class="wire" d="M300 42V72" marker-end="url(#arrow)" />
 
-          <rect class="pi" x="40" y="84" width="520" height="216" />
-          <text class="s" x="56" y="106">Raspberry Pi 5, one Python process</text>
+          <rect class="pi" x="40" y="74" width="520" height="100" />
+          <text class="s" x="56" y="96">Raspberry Pi</text>
 
-          <rect class="box" x="56" y="120" width="152" height="56" />
-          <text class="t" x="132" y="144" text-anchor="middle">Find faces</text>
-          <text class="s" x="132" y="163" text-anchor="middle">Haar cascade</text>
-          <path class="wire" d="M208 148H222" marker-end="url(#arrow)" />
+          <rect class="box" x="56" y="110" width="152" height="44" />
+          <text class="t" x="132" y="137" text-anchor="middle">Find faces</text>
+          <path class="wire" d="M208 132H222" marker-end="url(#arrow)" />
 
-          <rect class="box" x="224" y="120" width="152" height="56" />
-          <text class="t" x="300" y="144" text-anchor="middle">Read the smile</text>
-          <text class="s" x="300" y="163" text-anchor="middle">FER+ model</text>
-          <path class="wire" d="M376 148H390" marker-end="url(#arrow)" />
+          <rect class="box" x="224" y="110" width="152" height="44" />
+          <text class="t" x="300" y="137" text-anchor="middle">Measure the smile</text>
+          <path class="wire" d="M376 132H390" marker-end="url(#arrow)" />
 
-          <rect class="box" x="392" y="120" width="152" height="56" />
-          <text class="t" x="468" y="144" text-anchor="middle">Smooth it</text>
-          <text class="s" x="468" y="163" text-anchor="middle">smile 0 to 100 %</text>
+          <rect class="box" x="392" y="110" width="152" height="44" />
+          <text class="t" x="468" y="137" text-anchor="middle">Trigger at 90 %</text>
 
-          <path class="wire" d="M468 176V196" marker-end="url(#arrow)" />
+          <path class="wire" d="M100 174V212" marker-end="url(#arrow)" />
+          <path class="wire" d="M233 174V212" marker-end="url(#arrow)" />
+          <path class="wire" d="M367 174V212" marker-end="url(#arrow)" />
+          <path class="wire" d="M500 174V212" marker-end="url(#arrow)" />
 
-          <rect class="trigger" x="56" y="198" width="488" height="86" />
-          <text class="t" x="72" y="224">State machine</text>
-          <text class="s" x="72" y="246">live: arm rises with the smile</text>
-          <text class="s" x="72" y="262">at 90 %: sign turns, held 5 s</text>
-          <text class="s" x="72" y="278">rest, then live again</text>
+          <rect class="box" x="40" y="214" width="121" height="44" />
+          <text class="t" x="100" y="241" text-anchor="middle">Screen</text>
 
-          <path class="wire" d="M100 300V334" marker-end="url(#arrow)" />
-          <path class="wire" d="M233 300V334" marker-end="url(#arrow)" />
-          <path class="wire" d="M367 300V334" marker-end="url(#arrow)" />
-          <path class="wire" d="M500 300V334" marker-end="url(#arrow)" />
+          <rect class="box" x="173" y="214" width="121" height="44" />
+          <text class="t" x="233" y="241" text-anchor="middle">Robot arm</text>
 
-          <rect class="box" x="40" y="336" width="121" height="80" />
-          <text class="t" x="100" y="362" text-anchor="middle">Screen</text>
-          <text class="s" x="100" y="382" text-anchor="middle">Chromium kiosk</text>
-          <text class="s" x="100" y="398" text-anchor="middle">polls 8×/s</text>
+          <rect class="box" x="306" y="214" width="121" height="44" />
+          <text class="t" x="367" y="241" text-anchor="middle">Pinwheel</text>
 
-          <rect class="box" x="173" y="336" width="121" height="80" />
-          <text class="t" x="233" y="362" text-anchor="middle">SO-101 arm</text>
-          <text class="s" x="233" y="382" text-anchor="middle">holds the sign</text>
-          <text class="s" x="233" y="398" text-anchor="middle">50 Hz control</text>
-
-          <rect class="box" x="306" y="336" width="121" height="80" />
-          <text class="t" x="367" y="362" text-anchor="middle">Pinwheel</text>
-          <text class="s" x="367" y="382" text-anchor="middle">Arduino,</text>
-          <text class="s" x="367" y="398" text-anchor="middle">DC motor</text>
-
-          <rect class="box" x="439" y="336" width="121" height="80" />
-          <text class="t" x="500" y="362" text-anchor="middle">Clouds</text>
-          <text class="s" x="500" y="382" text-anchor="middle">servo</text>
+          <rect class="box" x="439" y="214" width="121" height="44" />
+          <text class="t" x="500" y="241" text-anchor="middle">Clouds</text>
         </svg>
         <figcaption>the screen and the arm follow your smile the whole time. the pinwheel and the clouds only move at 90 percent.</figcaption>
       </figure>

@@ -215,13 +215,6 @@ figure video {
   stroke-width: 1.5;
 }
 
-/* same as .box; kept separate so the state machine can be singled out */
-.diagram .trigger {
-  fill: var(--paper);
-  stroke: var(--ink);
-  stroke-width: 1.5;
-}
-
 .diagram .wire {
   fill: none;
   stroke: var(--ink);
