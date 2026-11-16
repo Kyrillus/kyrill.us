@@ -137,6 +137,8 @@ figure img {
 }
 
 figcaption {
+  /* captions are always lowercase, whatever the source says */
+  text-transform: lowercase;
   margin-top: 12px;
   max-width: 62ch;
   font-size: 1rem;
